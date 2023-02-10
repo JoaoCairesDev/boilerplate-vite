@@ -1,12 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "../../store/module/rootReducer";
 
 export default function Home() {
-  document.title = "Inicío | Clover";
+  //traz o dado do reducer
+  const count = useSelector((state) => state.counter.value);
+  //dispara ações para o reducer
+  const dispatch = useDispatch();
+
   return (
     <div>
-      <h1>Home</h1>
-      <Link to={"/contatos"}>Contatos</Link>
+      <div>
+        <button
+          aria-label="Increment Value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span> {count} </span>
+        <button
+          aria-label="Decrement Value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
     </div>
   );
 }

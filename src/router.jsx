@@ -4,16 +4,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Páginas importadas para endereçamento e identificação de rotas
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Cadastro from "./pages/cadastro";
 import NotFound from "./pages/NotFound";
 //Componentes
-import Header from "./components/Header";
 
 export default function Router() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
